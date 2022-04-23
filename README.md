@@ -6,6 +6,6 @@ Than run the script using Pytthon3, and setting the flag for map path and others
 
 Example: 
 
-python3 main.py -m map/map.yaml -s -v -d pointCloudFolder/pointCloud
+python3 main.py -m map/map.yaml -s -v -d map/xxx
 
 For better understanding, use -h or --help. 

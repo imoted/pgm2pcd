@@ -1,0 +1,23 @@
+version: '2.3'
+services:
+  pgm2pcl:
+    build: .
+    container_name: for_pgm_to_pcl
+    image: for_pgm_to_pcl
+    tty: true
+    stdin_open: true
+    shm_size: 2gb
+    # ports:
+      # - "11311:11311"
+    # devices:
+    #   - /dev/snd
+    volumes:
+      - $HOME/Documents:/home/docker/Documents
+      - /etc/localtime:/etc/localtime:ro
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /run/user/$UID/pulse/native:/tmp/pulseaudio.socket
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - PULSE_SERVER=unix:/tmp/pulseaudio.socket
+      - PULSE_COOKIE=/tmp/pulseaudio.cookie
